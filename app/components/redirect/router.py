@@ -16,8 +16,8 @@ async def main(short: str, request: Request, session: AsyncSession = Depends(get
     #   Если выбирать result, то не сработает перенаправление.
     #   Если выбирать перенаправление, то Swager от FastAPI будет выдавть ошибку.
     #   Поэтому я разделил запрос по заголовку accept:
-    #      Если accept равен "application/json" - запрос отправлен из Swager и мы возвращаем result
-    #      И наоборот если заголовок другой - запрос отправлен из браузера и возвращаем перенаправление
+    #      1. Если accept равен "application/json" - запрос отправлен из Swager и мы возвращаем result
+    #      2. Eсли заголовок другой - запрос отправлен из браузера и возвращаем перенаправление
     accept_header = request.headers.get("accept")
     result = await get_link_by_short(short, session)
     if result is not None:

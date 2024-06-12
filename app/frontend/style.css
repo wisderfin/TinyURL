@@ -1,0 +1,97 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 0;
+    transition: transform 0.5s ease-in-out;
+}
+
+html{
+    background-color: #270f0f;
+    
+}
+
+.error,
+.response,
+.main,
+.title{
+    display: flex;
+    width: max-content;
+    height: min-content;
+    margin: 0 auto;
+    color: #270f0f;
+}
+
+.conteiner{
+    display: flexbox;
+    /* height: 98vh; */
+    margin-top: 50vh;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    transform: translateY(-50%);    
+}
+.title h1{
+    color: azure;
+    font-weight: 600;
+    font-size: 5vw;
+}
+
+.main #link,
+.main #go,
+.response#true #result:disabled,
+.response#true #copy,
+.error textarea{
+    text-align: center;
+    background-color: azure;
+    width: 70vw;
+    height: 5vw;
+    border: none;
+    font-size: 2.8vw;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-top: 20px;
+    box-sizing: border-box;
+
+    
+}
+
+.response#true #copy:active,
+.main #go:active{
+    background-color: #2e2a2a;
+    color: azure;
+}
+
+.error textarea:disabled{
+    color: rgb(255, 255, 255);
+    background-color: rgba(211, 255, 255, 0);
+    width: 76.5vw;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-top: 2vw;
+    resize: none;
+}
+
+.main #link:focus, 
+.main #link:hover{
+    outline: 0;
+}
+
+.main #go,
+.response#true #copy{
+    width: 6vw;
+    padding: 0;
+    margin-left: .5vw;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.main #go{
+    padding-bottom: -200px;
+}
+
+.error#false,
+.response#false{
+    display: none;
+}

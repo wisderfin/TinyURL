@@ -19,9 +19,3 @@ class LinkScheme(BaseModel):
     full: AnyHttpUrl
     created_at: datetime
 
-    @field_validator('full')
-    def add_protocol(cls, v):
-        v = str(v)
-        if 'http://' not in v and 'https://' not in v:
-            v = f'https://{v}'
-        return AnyHttpUrl(v)

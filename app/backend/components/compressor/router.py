@@ -2,10 +2,10 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
 
-from app.components.compressor.schemes import AddLinkScheme
-from app.components.compressor.utils import add_link, get_latest_url
-from app.components.compressor.services import next_short
-from app.base.database import get_async_session
+from app.backend.components.compressor.schemes import AddLinkScheme
+from app.backend.components.compressor.utils import add_link, get_latest_url
+from app.backend.components.compressor.services import next_short
+from app.backend.base.database import get_async_session
 router = APIRouter(prefix="/compressor")
 
 

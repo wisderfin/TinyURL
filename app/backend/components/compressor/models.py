@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, DateTime, func
-from app.base.model import Base
+from app.backend.base.model import Base
 
 
 # Модель пользователя

@@ -2,8 +2,8 @@ from fastapi import APIRouter, Depends, Request
 from sqlalchemy.ext.asyncio import AsyncSession
 from starlette.responses import RedirectResponse
 
-from app.components.redirect.utils import get_link_by_short
-from app.base.database import get_async_session
+from app.backend.components.redirect.utils import get_link_by_short
+from app.backend.base.database import get_async_session
 
 
 router = APIRouter()

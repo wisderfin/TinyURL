@@ -10,6 +10,8 @@ services:
     ports:
       - "5432:5432"
     restart: on-failure
+    networks:
+      - main
 
   alembic:
     build:
@@ -20,16 +22,51 @@ services:
     depends_on:
       - postgres
     restart: on-failure
+    networks:
+      - main
 
   fastapi:
     build:
       context: .
-    command: sh -c "alembic upgrade head && uvicorn app.main:app --reload --host='0.0.0.0'"
+    command: sh -c "uvicorn app.backend.main:app --reload --host='0.0.0.0'"
     ports:
       - "8000:8000"
+    expose:
+      - 8000
     volumes:
       - .:/app
     depends_on:
       - postgres
       - alembic
     restart: always
+    networks:
+      - main
+
+  frontend:
+    build:
+      context: .
+      dockerfile: dockerfile_frontend
+    command: sh -c "live-server --host=0.0.0.0 app/frontend"
+    volumes:
+      - .:/app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - fastapi
+    restart: on-failure
+    networks:
+      - main
+
+networks:
+  main:
+    driver: bridge
+    name: main
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.26.13.0/24
+
+
+
+
+

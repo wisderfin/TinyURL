@@ -1,8 +1,8 @@
 from sqlalchemy import select, desc
 from sqlalchemy.ext.asyncio import AsyncSession
 from pydantic import AnyHttpUrl
-from app.components.compressor.models import LinkModel
-from app.components.compressor.schemes import LinkScheme
+from app.backend.components.compressor.models import LinkModel
+from app.backend.components.compressor.schemes import LinkScheme
 
 
 # добавление ссылки в бд

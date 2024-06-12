@@ -1,0 +1,11 @@
+# Используем базовый образ node:14-alpine
+FROM node:14-alpine
+
+# Устанавливаем глобально live-server
+RUN npm install -g live-server
+RUN npm install -g axios
+# Устанавливаем рабочую директорию
+WORKDIR /app
+
+# Копируем все файлы проекта в контейнер
+COPY . .
